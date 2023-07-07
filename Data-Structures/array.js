@@ -15,12 +15,21 @@ Multidimensional arrays: Arrays can have more than one dimension. A two-dimensio
 
 */
 
-//Here is a basic usage of an array in JavaScript:
-let array = [10, 20, 30, 40, 50]; // declaring and initializing an array
+// Declare and initialize an array with five elements: 10, 20, 30, 40, and 50.
+let array = [10, 20, 30, 40, 50]; 
 
+// Start a for loop. The initialization condition sets the iterator 'i' to 0. 
+// The termination condition is 'i' less than the length of the array. 
+// Each time the loop runs, the iterator 'i' is increased by 1.
 for(let i = 0; i < array.length; i++) {
-    console.log(`Element at index ${i}: ${array[i]}`); // accessing elements
+
+    // In each iteration of the loop, this line is executed. It prints out a string to the console.
+    // The string contains a fixed part ("Element at index ") and a variable part.
+    // The variable part is the value of 'i' (representing the current index in the array) and the value of the array at that index.
+    // The ${} syntax is used to insert these variable parts into the string.
+    console.log(`Element at index ${i}: ${array[i]}`); 
 }
+
 
 /*
 In this example, an array of integers is declared and initialized. The elements are then accessed using their indices in a for loop.
@@ -39,19 +48,23 @@ In JavaScript, you can create multidimensional arrays, with the most common bein
 Here is an example of a 2D array representing a grid of numbers.
 */
 
-// declaring and initializing a 2D array
+// Declare and initialize a 2D array (also known as a matrix)
 let matrix = 
 [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9]
+    [1, 2, 3],  // The first row of the matrix
+    [4, 5, 6],  // The second row of the matrix
+    [7, 8, 9]   // The third row of the matrix
 ]; 
 
+// Iterate over each row of the matrix
 for(let i = 0; i < matrix.length; i++) {
+    // Within each row, iterate over each column
     for(let j = 0; j < matrix[i].length; j++) {
+        // Print out the current element's location (row i, column j) and its value
         console.log(`Element at row ${i}, column ${j}: ${matrix[i][j]}`); // accessing elements
     }
 }
+
 
 /*
 

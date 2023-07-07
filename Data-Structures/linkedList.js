@@ -19,41 +19,48 @@ Here is a simple implementation of a singly linked list in JavaScript:
 
 */
 
+// Define the Node class
 class Node {
+    // Node constructor
     constructor(data, next = null) {
-        this.data = data;
-        this.next = next;
+        this.data = data;  // The data the node will hold
+        this.next = next;  // The next node in the linked list
     }
 }
 
+// Define the LinkedList class
 class LinkedList {
+    // LinkedList constructor
     constructor() {
-        this.head = null;
+        this.head = null;  // Head of the list, start with no nodes (null)
     }
 
+    // Method to insert a node at the beginning of the list
     insertAtBeginning(data) {
-        let newNode = new Node(data);
-        newNode.next = this.head;
-        this.head = newNode;
-        return this.head;
+        let newNode = new Node(data);  // Create a new node with the data
+        newNode.next = this.head;  // Point the new node's 'next' to the current head node
+        this.head = newNode;  // Update the head of the list to the new node
+        return this.head;  // Return the new head node
     }
 
+    // Method to display the list
     display() {
-        let nodes = [];
-        let currentNode = this.head;
+        let nodes = [];  // Create an array to hold the nodes for displaying
+        let currentNode = this.head;  // Start with the head node
         while (currentNode) {
-            nodes.push(currentNode.data);
-            currentNode = currentNode.next;
+            nodes.push(currentNode.data);  // Add the current node's data to the array
+            currentNode = currentNode.next;  // Move on to the next node
         }
-        return nodes.join(' -> ');
+        return nodes.join(' -> ');  // Join the nodes' data into a string with ' -> ' between each node and return it
     }
 }
 
-let list = new LinkedList();
-list.insertAtBeginning('Red');
-list.insertAtBeginning('Blue');
-list.insertAtBeginning('Green');
-console.log(list.display());  // Outputs: "Green -> Blue -> Red"
+let list = new LinkedList();  // Create a new LinkedList instance
+list.insertAtBeginning('Red');  // Insert 'Red' at the beginning of the list
+list.insertAtBeginning('Blue');  // Insert 'Blue' at the beginning of the list, shifting 'Red' down
+list.insertAtBeginning('Green');  // Insert 'Green' at the beginning of the list, shifting 'Blue' and 'Red' down
+console.log(list.display());  // Display the list, outputs: "Green -> Blue -> Red"
+
 
 /*
 In this example:
@@ -76,48 +83,55 @@ Here is a basic implementation of a doubly linked list in JavaScript:
 
 */
 
+// Define the Node class for a doubly linked list
 class Node {
+    // Node constructor
     constructor(data, prev = null, next = null) {
-        this.data = data;
-        this.prev = prev;
-        this.next = next;
+        this.data = data;  // The data the node will hold
+        this.prev = prev;  // Reference to the previous node in the list
+        this.next = next;  // Reference to the next node in the list
     }
 }
 
+// Define the DoublyLinkedList class
 class DoublyLinkedList {
+    // DoublyLinkedList constructor
     constructor() {
-        this.head = null;
-        this.tail = null;
+        this.head = null;  // Head of the list, start with no nodes (null)
+        this.tail = null;  // Tail of the list, start with no nodes (null)
     }
 
+    // Method to insert a node at the beginning of the list
     insertAtBeginning(data) {
-        let newNode = new Node(data, null, this.head);
+        let newNode = new Node(data, null, this.head);  // Create a new node with the data
         if (this.head) {
-            this.head.prev = newNode;
+            this.head.prev = newNode;  // If there is a head node, update its 'prev' to the new node
         }
-        this.head = newNode;
+        this.head = newNode;  // Update the head of the list to the new node
         if (this.tail === null) {
-            this.tail = newNode;
+            this.tail = newNode;  // If there is no tail node (list was empty), set the new node as the tail
         }
-        return this.head;
+        return this.head;  // Return the new head node
     }
 
+    // Method to display the list
     display() {
-        let nodes = [];
-        let currentNode = this.head;
+        let nodes = [];  // Create an array to hold the nodes for displaying
+        let currentNode = this.head;  // Start with the head node
         while (currentNode) {
-            nodes.push(currentNode.data);
-            currentNode = currentNode.next;
+            nodes.push(currentNode.data);  // Add the current node's data to the array
+            currentNode = currentNode.next;  // Move on to the next node
         }
-        return nodes.join(' <-> ');
+        return nodes.join(' <-> ');  // Join the nodes' data into a string with ' <-> ' between each node and return it
     }
 }
 
-let list2 = new DoublyLinkedList();
-list2.insertAtBeginning('Red');
-list2.insertAtBeginning('Blue');
-list2.insertAtBeginning('Green');
-console.log(list2.display());  // Outputs: "Green <-> Blue <-> Red"
+let list2 = new DoublyLinkedList();  // Create a new DoublyLinkedList instance
+list2.insertAtBeginning('Red');  // Insert 'Red' at the beginning of the list
+list2.insertAtBeginning('Blue');  // Insert 'Blue' at the beginning of the list, shifting 'Red' down
+list2.insertAtBeginning('Green');  // Insert 'Green' at the beginning of the list, shifting 'Blue' and 'Red' down
+console.log(list2.display());  // Display the list, outputs: "Green <-> Blue <-> Red"
+
 
 /*
 
